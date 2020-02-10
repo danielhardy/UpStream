@@ -1,0 +1,26 @@
+extends ../layout.pug
+
+block content
+    .container
+        .row
+            .col-sm-6.col-sm-offset-3
+                h1 Signup
+                
+                -if(error_messages != "")
+                    .alert.alert-danger= error_messages
+                -if(success_messages !="")
+                    .alert.alert-success= success_messages      
+                form(action="/signup", method="post")
+                    .form-group
+                        label(for="email") Email
+                        input.form-control(type="email", name="email" required)
+                      
+                    .form-group
+                        label(for="password") Password
+                        input.form-control(type="password", name="password" required)
+                      
+                    button.btn.btn-primary(type="submit") Create Account
+                    p(style="margin-top: 20px;") 
+                        small By clicking Create Account you agree to the <a href="/tos">Terms of Service</a>.
+                    hr
+                    p Already have an account? <a href="/login">Login</a>

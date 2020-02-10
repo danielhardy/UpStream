@@ -1,0 +1,27 @@
+extends ../layout.pug
+
+block content
+    .container
+        .row
+            .col-sm-12
+                h3 Hi,  #{user.local.email}
+                p You have #{count} subscriptions (<a href="/subscriptions"> View </a>)
+                .form-group
+                    label Email Address
+                    p #{user.local.email}
+                .form-group   
+                    label Password:
+                    p ******** <a href="/users/changepassword">Change</a>
+    
+    div#modal_passwordReset.modal.fade(tabindex="-1", role="dialog", aria-labelledby="modal_passwordReset")
+        div.modal-dialog(role="document")
+            div.modal-content
+                div.modal-header
+                    button.close(type="button", data-dismiss="modal", aria-label="Close")
+                        span(aria-hidden="true") &times;
+                    h4#myModalLabel.modal-title  Modal title
+                div.modal-body
+                    p ...
+                div.modal-footer
+                    button.btn.btn-default(type="button", data-dismiss="modal") Close
+                    button.btn.btn-primary(type="button") Save changes

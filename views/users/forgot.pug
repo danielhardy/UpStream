@@ -1,0 +1,18 @@
+extends ../layout.pug
+
+block content
+    .container
+        .row
+            .col-sm-6.col-sm-offset-3
+                h1 Forgot Password
+                -if(error_messages != "")
+                    .alert.alert-danger= error_messages
+                -if(success_messages !="")
+                    .alert.alert-success= success_messages
+                form(action="/forgot", method="post")
+                    .form-group
+                        label(for="email") Email
+                        input.form-control(type="email", name="email" required autofocus)
+                    button.btn.btn-primary(type="submit") Reset Password
+                hr
+                p Need an account? <a href="/signup">Signup</a>

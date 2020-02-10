@@ -1,0 +1,23 @@
+extends ../layout.pug
+
+block content
+    .container
+        .row
+            .col-sm-6.col-sm-offset-3
+                h1 Login
+                -if(error_messages != "")
+                    .alert.alert-danger= error_messages
+                -if(success_messages !="")
+                    .alert.alert-success= success_messages
+                form(action="/login", method="post")
+                    .form-group
+                        label(for="email") Email
+                        input.form-control(type="email", name="email" required)
+                    .form-group
+                        label(for="password") Password
+                        input.form-control(type="password", name="password" required)
+                        p.text-right
+                            a(href="/forgot") Forgot Password?
+                    button.btn.btn-primary(type="submit") Login
+                hr
+                p Need an account? <a href="/signup">Signup</a>
